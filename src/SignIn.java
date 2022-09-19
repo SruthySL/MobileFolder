@@ -3,7 +3,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 public class SignIn {
-
+	
 	@Test
 	public void signIn() {
 		// TODO Auto-generated method stub
@@ -11,8 +11,11 @@ public class SignIn {
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://mobileworld.banyanpro.com/");
 		LandingPage ob = new LandingPage(driver);
-		
-		ob.SignIn("Sruthy","Sruthy123");
+	    ob.SignIn("Sruthy@gmail.com","Sruthy123");
+	    ob.SignIn("sr", "Sruthy123");
+	    ob.SignIn("Sruthy@gmail.com", "Sr");
+	    ob.SignIn("sruthy#sl@gmail.com", "sruthy123456");
+	    
 
 	}
 

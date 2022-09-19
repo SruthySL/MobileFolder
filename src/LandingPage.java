@@ -1,12 +1,13 @@
-import java.util.Iterator;
-import java.util.Set;
+import static org.testng.Assert.assertTrue;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Set;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class LandingPage {
 	WebDriver driver;
@@ -14,8 +15,11 @@ public class LandingPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	
+	
 	//signIn
 
+	
 @FindBy(css="button[type='submit']")
 WebElement signInButton;
 	
@@ -33,10 +37,32 @@ public void SignIn(String name, String pswd) {
 	signInButton.click();
 	userName.sendKeys(name);
 	passWord.sendKeys(pswd);
-	logIn.click();
+	logIn.click(); 
+}
+public void isEmailTestPassed(String userEmail) {
+    if(userEmail.length() < 3 || userEmail.length() > 20) {
+        try {
+        assertTrue(logIn.isDisplayed());
+        }
+        catch(NoSuchElementException ex) {}
+    }
+    else
+        Assert.assertEquals("https://mobileworld.banyanpro.com/index.html", driver.getCurrentUrl());
 }
 
-//signUp
+public void isPasswordTestPassed(String userPassword) {
+    if(userPassword.length() < 3 || userPassword.length() > 10) {
+        try {
+        assertTrue(logIn.isDisplayed());
+        }
+        catch(NoSuchElementException ex) {System.out.println("Invalid Password");}
+    }
+    else
+        Assert.assertEquals("https://mobileworld.banyanpro.com/index.html", driver.getCurrentUrl());
+}
+
+     //signUp
+
 
 @FindBy(css="button[type='submit']")
 WebElement signIn;
@@ -90,10 +116,11 @@ public void SignUp(String fname, String lname, String email, String pwd, String 
     driver.switchTo().alert().accept();
   
     
-
 }
 
-//Order
+
+    //Order
+
 
 @FindBy(xpath="/html[1]/body[1]/nav[1]/div[1]/ul[1]/li[4]/a[1]")
 WebElement support;
@@ -169,7 +196,7 @@ WebElement order;
 
 
 
-public void Order(String fname, String lname,String mail, String pswd1, String mobnum, String add1, String add2, String city, String zip, String count, String times) {
+public void Order(String fname, String lname, String mail, String pswd1, String mobnum, String add1, String add2, String city, String zip, String count, String times) {
 	support.click();
 	odr.click();
 	Set windows = driver.getWindowHandles();
