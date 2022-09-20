@@ -1,13 +1,10 @@
-import static org.testng.Assert.assertTrue;
 
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 import java.util.Set;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 public class LandingPage {
 	WebDriver driver;
@@ -39,27 +36,8 @@ public void SignIn(String name, String pswd) {
 	passWord.sendKeys(pswd);
 	logIn.click(); 
 }
-public void isEmailTestPassed(String userEmail) {
-    if(userEmail.length() < 3 || userEmail.length() > 20) {
-        try {
-        assertTrue(logIn.isDisplayed());
-        }
-        catch(NoSuchElementException ex) {}
-    }
-    else
-        Assert.assertEquals("https://mobileworld.banyanpro.com/index.html", driver.getCurrentUrl());
-}
 
-public void isPasswordTestPassed(String userPassword) {
-    if(userPassword.length() < 3 || userPassword.length() > 10) {
-        try {
-        assertTrue(logIn.isDisplayed());
-        }
-        catch(NoSuchElementException ex) {System.out.println("Invalid Password");}
-    }
-    else
-        Assert.assertEquals("https://mobileworld.banyanpro.com/index.html", driver.getCurrentUrl());
-}
+
 
      //signUp
 
@@ -102,6 +80,7 @@ WebElement signinbtn;
 
 
 public void SignUp(String fname, String lname, String email, String pwd, String dob, String num, String bio ) throws InterruptedException {
+	
 	signIn.click();
 	signUp.click();
     firstName.sendKeys(fname);
@@ -114,10 +93,8 @@ public void SignUp(String fname, String lname, String email, String pwd, String 
     Shortbio.sendKeys(bio);
     register.click();
     driver.switchTo().alert().accept();
-  
-    
+ 
 }
-
 
     //Order
 
@@ -131,7 +108,7 @@ WebElement odr;
 @FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]")
 WebElement Fname;
 
-@FindBy(xpath="//body/div[@class='container']/div[@class='card']/div[@class='card-body']/form[@id='myForm']/div[1]/div[1]/input[1]")
+@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]/input[1]")
 WebElement Lname;
 
 @FindBy(xpath="//input[@id='inputEmail']")
@@ -164,7 +141,6 @@ WebElement State;
 @FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/form[1]/div[5]/div[3]/input[1]")
 WebElement Zip;
 
-
 @FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/form[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/label[1]/input[1]")
 WebElement choosebrand;
 
@@ -193,12 +169,12 @@ WebElement check2;
 WebElement order;
 
 
-
-
-
-public void Order(String fname, String lname, String mail, String pswd1, String mobnum, String add1, String add2, String city, String zip, String count, String times) {
+public void Order(String fname, String lname, String mail, String pswd1, String mobnum, String add1, String add2, String city, String zip, String times) {
+	
 	support.click();
 	odr.click();
+	
+	
 	Set windows = driver.getWindowHandles();
 	Iterator it = windows.iterator();
 	String parentId = (String) it.next();
@@ -221,13 +197,14 @@ public void Order(String fname, String lname, String mail, String pswd1, String 
 	choosebrand.click();
 	brand.click();
 	model.click();
-	Count.sendKeys(count);
+	
 	opt.click();
 	numoftimes.sendKeys(times);
 	check1.click();
 	check2.click();
 	order.click();
 	driver.close();
+
 }
 
 }
