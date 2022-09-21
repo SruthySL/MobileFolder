@@ -11,7 +11,7 @@ public class SignIn {
 	        WebDriver driver = new ChromeDriver();
 	        driver.get("https://mobileworld.banyanpro.com/");
 	        LandingPage ob= new LandingPage(driver);
-	        ob.SignIn("Nivethaa","Nivi15");
+	        ob.SignIn("Sruthy","Sruthy2000");
 	        Assert.assertEquals(driver.getCurrentUrl(),"https://mobileworld.banyanpro.com/index.html");
 	    }
 	    
@@ -21,7 +21,7 @@ public class SignIn {
 	        WebDriver driver = new ChromeDriver();
 	        driver.get("https://mobileworld.banyanpro.com/");
 	        LandingPage ob= new LandingPage(driver);
-	        ob.SignIn(" ","nivi15");
+	        ob.SignIn(" ","Sruthy2000");
 	        Assert.assertEquals(driver.getCurrentUrl(),"https://mobileworld.banyanpro.com/sign.html");
 	        }
 	    
@@ -41,7 +41,7 @@ public class SignIn {
 	        WebDriver driver = new ChromeDriver();
 	        driver.get("https://mobileworld.banyanpro.com/");
 	        LandingPage ob= new LandingPage(driver);
-	        ob.SignIn("Ni","Nivi153 ");
+	        ob.SignIn("Sr","Sruthy2000 ");
 	        Assert.assertEquals(driver.getCurrentUrl(),"https://mobileworld.banyanpro.com/sign.html");
 	        }
 	    
@@ -51,7 +51,7 @@ public class SignIn {
 	        WebDriver driver = new ChromeDriver();
 	        driver.get("https://mobileworld.banyanpro.com/");
 	        LandingPage ob= new LandingPage(driver);
-	        ob.SignIn("NivethaaElumalaishaaheidii","nivi123 ");
+	        ob.SignIn("Sruthylathikanandasl","Sruthy2000 ");
 	        Assert.assertEquals(driver.getCurrentUrl(),"https://mobileworld.banyanpro.com/sign.html");
 	        }
 	    
@@ -62,7 +62,7 @@ public class SignIn {
 	        WebDriver driver = new ChromeDriver();
 	        driver.get("https://mobileworld.banyanpro.com/");
 	        LandingPage ob= new LandingPage(driver);
-	        ob.SignIn("nivethaa","nivi!@");
+	        ob.SignIn("Sruthy","Sruthy!@");
 	        Assert.assertEquals(driver.getCurrentUrl(),"https://mobileworld.banyanpro.com/sign.html");
 	    }
 
